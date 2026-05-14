@@ -3,69 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sev Graham - Homepage</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    nav {
-      background-color: #00509e;
-      padding: 0.75rem;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 1.5rem;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #eee;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 3rem;
-    }
-  </style>
+  <meta name="description" content="About Sev Graham." />
+  <title>About — Sev Graham</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <div style="text-align: center; margin-top: 2rem;">
-      <div style="width:160px; height:160px; display:inline-block; overflow:hidden; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-      <img src="profile.jpg" alt="Sev Graham Profile Picture" style="width:320px; height:320px; object-fit:cover; object-position: -120px -30px; transform:scale(2);" />
-      </div>
+    <div class="profile-frame">
+      <img src="profile.jpg" alt="Sev Graham profile picture" />
     </div>
     <h1>Sev Graham</h1>
-    <p>Welcome to my personal website</p>
   </header>
 
   <nav>
@@ -74,13 +21,17 @@
     <a href="publications.html">Publications</a>
     <a href="photography.html">Photography</a>
     <a href="projects.html">Personal Projects</a>
-    <a href="about.html">About</a>
+    <a href="about.html" aria-current="page">About</a>
   </nav>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hello.</p>
-  </section>
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>I am a recent graduate of the University of Arizona, where I earned a B.S. in Astronomy in 2024 with minors in Planetary Sciences, Physics, and Geosciences. My research focuses on the orbital dynamics of the outer solar system, and I am currently based in Tucson, Arizona.</p>
+      <p>As an undergraduate researcher at the Lunar and Planetary Laboratory, I studied the dynamical structure of the trans-Neptunian region using n-body simulations. This work was published in <em>The Planetary Science Journal</em> as Graham &amp; Volk (2024), characterizing Uranus&rsquo;s influence on Neptune&rsquo;s exterior mean-motion resonances. I have also contributed to SBDynT, a machine-learning framework for classifying small-body dynamics in preparation for the Legacy Survey of Space and Time (LSST), and worked in the Arizona Noble Gas Laboratory preparing samples for Ar-Ar isotopic analysis.</p>
+      <p>I received the Excellence in Undergraduate Research Award from the University of Arizona Department of Planetary Sciences and an Arizona NASA Space Grant Award. I am currently applying to PhD programs for Fall 2026, with research interests in exoplanet dynamics and lunar geologic history.</p>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Sev Graham. All rights reserved.

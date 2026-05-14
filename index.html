@@ -3,73 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sev Graham - Homepage</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    nav {
-      background-color: #00509e;
-      padding: 0.75rem;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 1.5rem;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #eee;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 3rem;
-    }
-  </style>
+  <meta name="description" content="Personal website of Sev Graham — planetary science, photography, and projects." />
+  <title>Sev Graham</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <div style="text-align: center; margin-top: 2rem;">
-      <div style="width:160px; height:160px; display:inline-block; overflow:hidden; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-      <img src="profile.jpg" alt="Sev Graham Profile Picture" style="width:320px; height:320px; object-fit:cover; object-position: -130px -30px; transform:scale(1);" />
-      </div>
+    <div class="profile-frame">
+      <img src="profile.jpg" alt="Sev Graham profile picture" />
     </div>
     <h1>Sev Graham</h1>
     <p>Welcome to my personal website</p>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" aria-current="page">Home</a>
     <a href="resume.html">Resume</a>
     <a href="publications.html">Publications</a>
     <a href="photography.html">Photography</a>
@@ -77,10 +25,12 @@
     <a href="about.html">About</a>
   </nav>
 
-  <section>
-    <h2>Hello!</h2>
-    <p>This is my homepage. Use the navigation bar above to learn more about my work, interests, and projects.</p>
-  </section>
+  <main>
+    <section>
+      <h2>Hello!</h2>
+      <p>This is my homepage. Use the navigation above to learn more about my work, interests, and projects.</p>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Sev Graham. All rights reserved.
