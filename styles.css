@@ -108,6 +108,10 @@ section {
   border-radius: 10px;
 }
 
+section.wide {
+  max-width: 900px;
+}
+
 section h2 {
   margin-top: 0;
   font-weight: 600;
@@ -136,18 +140,166 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-.resume-link {
+.external-link {
   font-size: 1.05rem;
   font-weight: 600;
 }
 
-.resume-iframe {
+.embed-frame {
   width: 100%;
   height: 600px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   background: #fff;
+}
+
+/* CV page */
+
+.cv-contact {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+
+.cv-contact a {
+  color: var(--text-dim);
+}
+
+.cv-section {
+  margin-top: 1.75rem;
+}
+
+.cv-section:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.cv-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-hover);
+  letter-spacing: 0.02em;
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.cv-entry {
+  margin-bottom: 1rem;
+}
+
+.cv-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.cv-row .cv-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cv-row .cv-when {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.cv-org {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0.15rem 0 0.2rem;
+}
+
+ul.cv-pts {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+ul.cv-pts li {
+  position: relative;
+  padding-left: 1.1em;
+  margin-bottom: 0.3rem;
+}
+
+ul.cv-pts li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.cv-cite {
+  padding-left: 1.6em;
+  text-indent: -1.6em;
+  margin-bottom: 0.7rem;
+  color: var(--text);
+}
+
+.cv-cite .cv-j {
+  font-style: italic;
+}
+
+.cv-cite .cv-doi {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.cv-note {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+dl.cv-skills {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  align-items: baseline;
+  margin: 0;
+}
+
+dl.cv-skills dt {
+  font-weight: 600;
+  color: var(--accent-hover);
+}
+
+dl.cv-skills dd {
+  color: var(--text);
+  margin: 0;
+}
+
+/* Extras page */
+
+.extras-item {
+  margin-bottom: 2rem;
+}
+
+.extras-item:last-child {
+  margin-bottom: 0;
+}
+
+.extras-item h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.4rem;
+}
+
+.extras-item p {
+  margin: 0 0 0.5rem;
+  color: var(--text-dim);
 }
 
 .photo-gallery {
@@ -205,7 +357,18 @@ footer {
     margin: 1rem;
     padding: 1.25rem 1.25rem;
   }
-  .resume-iframe {
+  .embed-frame {
     height: 70vh;
+  }
+  .cv-row {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  dl.cv-skills {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+  dl.cv-skills dd {
+    margin-bottom: 0.5rem;
   }
 }
