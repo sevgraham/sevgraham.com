@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Photography by Sev Graham." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sev Graham" />
+  <meta property="og:title" content="Photography — Sev Graham" />
+  <meta property="og:description" content="Astrophotography, infrared landscapes, and wildlife by Sev Graham." />
+  <meta property="og:image" content="https://sevgraham.com/photos/web/eclipse-sequence.jpg" />
+  <meta property="og:url" content="https://sevgraham.com/photography.html" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>Photography — Sev Graham</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
@@ -25,16 +32,64 @@
   </nav>
 
   <main>
-    <section>
+    <section class="wide-xl">
       <h2>Photography</h2>
-      <div class="photo-gallery">
-        <img src="photos/photo1.jpg" alt="Photo 1" class="gallery-img" />
-        <img src="photos/photo2.jpg" alt="Photo 2" class="gallery-img" />
-        <img src="photos/photo3.jpg" alt="Photo 3" class="gallery-img" />
-        <img src="photos/photo4.jpg" alt="Photo 4" class="gallery-img" />
-        <img src="photos/photo5.jpg" alt="Photo 5" class="gallery-img" />
-        <img src="photos/photo6.jpg" alt="Photo 6" class="gallery-img" />
+      <p class="section-lead">
+        A mix of astrophotography, infrared landscapes, and wildlife, shot by myself. Click any image to enlarge.
+      </p>
+
+      <figure class="photo-hero">
+        <img src="photos/web/eclipse-sequence.jpg" alt="Sequence of the total solar eclipse from partial phases into totality" class="gallery-img" width="2800" height="1104" loading="eager" decoding="async" />
+        <figcaption>Total solar eclipse from Bracketville,TX - April 2024</figcaption>
+      </figure>
+
+      <div class="photo-masonry">
+        <figure>
+          <img src="photos/web/orion-nebula.jpg" alt="The Orion Nebula, glowing pink and blue clouds of gas among stars" class="gallery-img" width="1800" height="1200" loading="lazy" decoding="async" />
+          <figcaption>The Orion Nebula (M42)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/great-blue-heron.jpg" alt="A Great Blue Heron standing at the edge of a stream" class="gallery-img" width="1350" height="1800" loading="lazy" decoding="async" />
+          <figcaption>Great Blue Heron</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/saguaro-ir.jpg" alt="A lone saguaro cactus in the desert, infrared" class="gallery-img" width="1800" height="1200" loading="lazy" decoding="async" />
+          <figcaption>Lone saguaro (film infrared trichome)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/comet-a3.jpg" alt="Comet C/2023 A3 with a long tail against a starfield" class="gallery-img" width="1800" height="1350" loading="lazy" decoding="async" />
+          <figcaption>Comet C/2023 A3 (Tsuchinshan&ndash;ATLAS)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/broad-billed-hummingbird.jpg" alt="A male Broad-billed Hummingbird perched on a branch" class="gallery-img" width="1800" height="1350" loading="lazy" decoding="async" />
+          <figcaption>Broad-billed Hummingbird (male)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/tucson-ir.jpg" alt="View over Tucson from Thimble Peak, infrared" class="gallery-img" width="1800" height="1200" loading="lazy" decoding="async" />
+          <figcaption>Thimble Peak (digital infrared)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/moon-earthshine.jpg" alt="A crescent Moon with the dark side faintly lit by earthshine" class="gallery-img" width="1600" height="1600" loading="lazy" decoding="async" />
+          <figcaption>Crescent Moon with earthshine</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/lakeside-ir.jpg" alt="Lakeside trees reflected in still water, infrared" class="gallery-img" width="1800" height="1012" loading="lazy" decoding="async" />
+          <figcaption>Silverbell Lake - Tucson, AZ (digital infrared)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/northern-harrier.jpg" alt="A Northern Harrier gliding low over golden grass" class="gallery-img" width="1800" height="1211" loading="lazy" decoding="async" />
+          <figcaption>Northern Harrier in flight</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/chicago-river.jpg" alt="Black and white view of the Chicago River between skyscrapers with a tour boat" class="gallery-img" width="1193" height="1800" loading="lazy" decoding="async" />
+          <figcaption>Chicago River (film)</figcaption>
+        </figure>
+        <figure>
+          <img src="photos/web/dead-tree-ir.jpg" alt="A weathered dead tree against a dark sky, infrared" class="gallery-img" width="1800" height="1175" loading="lazy" decoding="async" />
+          <figcaption>Dead tree at Windy Point (digital infrared)</figcaption>
+        </figure>
       </div>
+
       <div id="modal">
         <img id="modal-img" src="" alt="Enlarged photo" />
       </div>
@@ -42,12 +97,17 @@
         document.querySelectorAll('.gallery-img').forEach(img => {
           img.addEventListener('click', function() {
             document.getElementById('modal-img').src = this.src;
+            document.getElementById('modal-img').alt = this.alt;
             document.getElementById('modal').style.display = 'flex';
           });
         });
-        document.getElementById('modal').addEventListener('click', function(e) {
-          if (e.target === this) {
-            this.style.display = 'none';
+        document.getElementById('modal').addEventListener('click', function() {
+          this.style.display = 'none';
+          document.getElementById('modal-img').src = '';
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            document.getElementById('modal').style.display = 'none';
             document.getElementById('modal-img').src = '';
           }
         });
@@ -55,8 +115,6 @@
     </section>
   </main>
 
-  <footer>
-    &copy; 2025 Sev Graham. All rights reserved.
-  </footer>
+
 </body>
 </html>

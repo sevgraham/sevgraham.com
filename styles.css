@@ -7,6 +7,7 @@
   --text-dim: #8893a3;
   --accent: #7aa3c9;
   --accent-hover: #a3c1de;
+  --hairline: rgba(255, 255, 255, 0.14);
   --shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -176,12 +177,38 @@ footer {
   color: var(--text-dim);
 }
 
+.cv-actions {
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+
+.cv-download {
+  display: inline-block;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.cv-download:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  background-color: var(--surface-elevated);
+}
+
 .cv-section {
-  margin-top: 2.75rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--hairline);
 }
 
 .cv-section:first-of-type {
   margin-top: 2rem;
+  padding-top: 0;
+  border-top: none;
 }
 
 .cv-section h3 {
@@ -190,9 +217,7 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--accent);
-  padding-bottom: 0.55rem;
   margin: 0 0 1.15rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .cv-entry {
@@ -322,17 +347,42 @@ dl.cv-skills dd {
   color: var(--text-dim);
 }
 
-.photo-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+.section-lead {
+  color: var(--text-dim);
+  margin: 0 0 1.75rem;
+  max-width: 46rem;
+}
+
+/* Full-width hero (used for the ultra-wide eclipse panorama) */
+.photo-hero {
+  margin: 0 0 1rem;
+}
+
+.photo-hero img {
+  width: 100%;
+  height: auto;
+}
+
+/* Masonry gallery: preserves each photo's native aspect ratio */
+.photo-masonry {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.photo-masonry figure {
+  margin: 0 0 1rem;
+  break-inside: avoid;
+}
+
+.photo-hero,
+.photo-masonry figure {
+  display: block;
 }
 
 .gallery-img {
-  width: 220px;
-  height: 150px;
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   cursor: pointer;
@@ -343,6 +393,20 @@ dl.cv-skills dd {
 .gallery-img:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.photo-hero figcaption,
+.photo-masonry figcaption {
+  margin-top: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .photo-masonry {
+    column-count: 2;
+  }
 }
 
 #modal {
@@ -390,5 +454,61 @@ dl.cv-skills dd {
   }
   dl.cv-skills dd {
     margin-bottom: 0.5rem;
+  }
+  .photo-masonry {
+    column-count: 1;
+  }
+}
+
+/* Print: clean, ink-friendly CV output */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  header,
+  nav,
+  footer,
+  .cv-actions {
+    display: none;
+  }
+  section,
+  section.wide {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .cv-section {
+    border-top: 1px solid #ccc;
+    break-inside: avoid;
+  }
+  .cv-section h3 {
+    color: #000;
+  }
+  .cv-row .cv-title,
+  dl.cv-skills dt {
+    color: #000;
+  }
+  .cv-org,
+  .cv-row .cv-when,
+  .cv-contact,
+  .cv-contact a {
+    color: #444;
+  }
+  ul.cv-pts li,
+  dl.cv-skills dd,
+  .cv-cite {
+    color: #000;
+  }
+  ul.cv-pts li::before {
+    color: #000;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
   }
 }
