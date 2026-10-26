@@ -1,0 +1,13 @@
+title: Sev Graham
+url: https://sevgraham.com
+email: sevgraham.az@gmail.com
+
+exclude:
+  - .idea
+  - .devcontainer
+  - .claude
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - bin
+  - README.md
