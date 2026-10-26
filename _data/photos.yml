@@ -1,0 +1,63 @@
+# Single source for every photo on the site. Gallery order follows this list;
+# the entry with hero: true is shown full width above the gallery.
+- file: eclipse-sequence.jpg
+  w: 2800
+  h: 1104
+  hero: true
+  alt: Sequence of the total solar eclipse from partial phases into totality
+  caption: Total solar eclipse, Brackettville, TX, April 2024
+- file: orion-nebula.jpg
+  w: 1800
+  h: 1200
+  alt: The Orion Nebula, glowing pink and blue clouds of gas among stars
+  caption: The Orion Nebula (M42)
+- file: great-blue-heron.jpg
+  w: 1350
+  h: 1800
+  alt: A Great Blue Heron standing at the edge of a stream
+  caption: Great Blue Heron
+- file: saguaro-ir.jpg
+  w: 1800
+  h: 1200
+  alt: A lone saguaro cactus in the desert, infrared
+  caption: Lone saguaro (film infrared trichrome)
+- file: comet-a3.jpg
+  w: 1800
+  h: 1350
+  alt: Comet C/2023 A3 with a long tail against a starfield
+  caption: Comet C/2023 A3 (Tsuchinshan&ndash;ATLAS)
+- file: broad-billed-hummingbird.jpg
+  w: 1800
+  h: 1350
+  alt: A male Broad-billed Hummingbird perched on a branch
+  caption: Broad-billed Hummingbird (male)
+- file: tucson-ir.jpg
+  w: 1800
+  h: 1200
+  alt: View over Tucson from Thimble Peak, infrared
+  caption: Thimble Peak (digital infrared)
+- file: moon-earthshine.jpg
+  w: 1600
+  h: 1600
+  alt: A crescent Moon with the dark side faintly lit by earthshine
+  caption: Crescent Moon with earthshine
+- file: lakeside-ir.jpg
+  w: 1800
+  h: 1012
+  alt: Lakeside trees reflected in still water, infrared
+  caption: Silverbell Lake, Tucson, AZ (digital infrared)
+- file: northern-harrier.jpg
+  w: 1800
+  h: 1211
+  alt: A Northern Harrier gliding low over golden grass
+  caption: Northern Harrier in flight
+- file: chicago-river.jpg
+  w: 1193
+  h: 1800
+  alt: Black and white view of the Chicago River between skyscrapers with a tour boat
+  caption: Chicago River (film)
+- file: dead-tree-ir.jpg
+  w: 1800
+  h: 1175
+  alt: A weathered dead tree against a dark sky, infrared
+  caption: Dead tree at Windy Point (digital infrared)
