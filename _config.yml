@@ -11,6 +11,5 @@ exclude:
   - vendor
   - bin
   - README.md
-  - wrangler.jsonc
   - node_modules
   - headshot_original.jpg
