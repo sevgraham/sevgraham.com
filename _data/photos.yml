@@ -1,12 +1,12 @@
 # Single source for every photo on the site. Gallery order follows this list;
-# the entry with hero: true is shown full width above the gallery.
+# entries with home: true appear on the home page, first one large.
 - file: eclipse-sequence.jpg
   w: 2800
   h: 1104
-  hero: true
   alt: Sequence of the total solar eclipse from partial phases into totality
   caption: Total solar eclipse, Brackettville, TX, April 2024
 - file: orion-nebula.jpg
+  home: true
   w: 1800
   h: 1200
   alt: The Orion Nebula, glowing pink and blue clouds of gas among stars
@@ -22,6 +22,7 @@
   alt: A lone saguaro cactus in the desert, infrared
   caption: Lone saguaro (film infrared trichrome)
 - file: comet-a3.jpg
+  home: true
   w: 1800
   h: 1350
   alt: Comet C/2023 A3 with a long tail against a starfield
@@ -42,6 +43,7 @@
   alt: A crescent Moon with the dark side faintly lit by earthshine
   caption: Crescent Moon with earthshine
 - file: lakeside-ir.jpg
+  home: true
   w: 1800
   h: 1012
   alt: Lakeside trees reflected in still water, infrared

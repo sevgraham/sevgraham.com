@@ -3,9 +3,33 @@ layout: default
 nav: Home
 description: "Personal website of Sev Graham: planetary science, photography, and projects."
 ---
-<section>
-  <h2>About Me</h2>
-  <p>I earned my B.S. in Astronomy from the University of Arizona in 2024, with minors in Planetary Sciences, Physics, and Geosciences. I currently live in Tucson, Arizona, and my research centers on the orbital dynamics of the outer solar system.</p>
-  <p>As an undergraduate researcher at the Lunar and Planetary Laboratory, I studied the dynamical structure of the trans-Neptunian region using n-body simulations. This work was published in <em>The Planetary Science Journal</em> as Graham &amp; Volk (2024), characterizing Uranus&rsquo;s influence on Neptune&rsquo;s exterior mean-motion resonances, and earned the Excellence in Undergraduate Research Award from the University of Arizona Department of Planetary Sciences. I also contributed to SBDynT, a machine-learning framework for classifying small-body dynamics ahead of the Legacy Survey of Space and Time (LSST), and prepared samples for Ar-Ar geochronology in the Arizona Noble Gas Laboratory. I am currently collaborating on the dynamical analysis of a newly characterized dual exoplanet system.</p>
-  <p>Alongside my research, I work as a battery R&amp;D technician at Ampcera, developing dry-process electrodes for solid-state cells. I am applying to PhD programs for Fall 2027, with research interests including exoplanet dynamics and lunar geologic history. Make sure to check out my photography and personal projects as well!</p>
+<div class="home-intro">
+  <aside class="home-aside">
+    <img src="{{ '/headshot.jpg' | relative_url }}" alt="Sev Graham" class="headshot" width="290" height="290" />
+    <ul class="contact">
+      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      <li>Tucson, Arizona</li>
+      <li><a href="{{ '/cv.pdf' | relative_url }}">CV (PDF)</a></li>
+    </ul>
+  </aside>
+  <section class="home-about">
+    <h2>About</h2>
+    <p>I earned my B.S. in Astronomy from the University of Arizona in 2024, with minors in Planetary Sciences, Physics, and Geosciences. I currently live in Tucson, Arizona, and my research centers on the orbital dynamics of the outer solar system.</p>
+    <p>As an undergraduate researcher at the Lunar and Planetary Laboratory, I studied the dynamical structure of the trans-Neptunian region using n-body simulations. This work was published in <em>The Planetary Science Journal</em> as Graham &amp; Volk (2024), characterizing Uranus&rsquo;s influence on Neptune&rsquo;s exterior mean-motion resonances, and earned the Excellence in Undergraduate Research Award from the University of Arizona Department of Planetary Sciences. I also contributed to SBDynT, a machine-learning framework for classifying small-body dynamics ahead of the Legacy Survey of Space and Time (LSST), and prepared samples for Ar-Ar geochronology in the Arizona Noble Gas Laboratory. I am currently collaborating on the dynamical analysis of a newly characterized dual exoplanet system.</p>
+    <p>Alongside my research, I work as a battery R&amp;D technician at Ampcera, developing dry-process electrodes for solid-state cells. I am applying to PhD programs for Fall 2027, with research interests including exoplanet dynamics and lunar geologic history. Make sure to check out my photography and personal projects as well!</p>
+  </section>
+</div>
+
+<section class="home-photos">
+  <h2>Photography</h2>
+  {%- assign picks = site.data.photos | where: "home", true %}
+  <div class="home-photo-grid">
+    {%- for photo in picks %}
+    <figure>
+      <a href="{{ '/photography.html' | relative_url }}"><img src="{{ '/photos/web/' | append: photo.file | relative_url }}" alt="{{ photo.alt }}" width="{{ photo.w }}" height="{{ photo.h }}" loading="lazy" decoding="async" /></a>
+      <figcaption>{{ photo.caption }}</figcaption>
+    </figure>
+    {%- endfor %}
+  </div>
+  <p><a href="{{ '/photography.html' | relative_url }}">All photos</a></p>
 </section>

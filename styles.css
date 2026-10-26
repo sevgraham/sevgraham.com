@@ -1,14 +1,58 @@
+@font-face {
+  font-family: "Charis SIL";
+  src: url("assets/fonts/charis-sil-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Charis SIL";
+  src: url("assets/fonts/charis-sil-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Charis SIL";
+  src: url("assets/fonts/charis-sil-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("assets/fonts/josefin-sans-400.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("assets/fonts/courier-prime-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --bg: #0d1218;
-  --surface: #161d26;
-  --surface-elevated: #1d2630;
-  --border: #252e3a;
-  --text: #dde4ec;
-  --text-dim: #8893a3;
-  --accent: #7aa3c9;
-  --accent-hover: #a3c1de;
-  --hairline: rgba(255, 255, 255, 0.14);
+  --bg: #0d0c0b;
+  --surface: #161412;
+  --surface-elevated: #1d1a17;
+  --border: #34302b;
+  --text: #ebe7e1;
+  --text-dim: #b3aca2;
+  /* Average color of the partial-phase suns in the eclipse banner */
+  --accent: #f6a95f;
+  --accent-hover: #fcc583;
+  --hairline: rgba(255, 255, 255, 0.12);
   --shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  --font-body: "Charis SIL", Cambria, Georgia, serif;
+  --font-name: "Josefin Sans", "Futura", "Century Gothic", sans-serif;
+  --font-mono: "Courier Prime", "Courier New", monospace;
 }
 
 * {
@@ -16,140 +60,142 @@
 }
 
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
   margin: 0;
   padding: 0;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-header {
-  background-color: var(--surface-elevated);
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-  padding: 2.5rem 1rem 2rem;
-  text-align: center;
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-header h1 {
-  margin: 1rem 0 0.25rem;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+a:hover {
+  color: var(--accent-hover);
 }
 
-header p {
-  margin: 0;
-  color: var(--text-dim);
-  font-size: 1rem;
+/* Banner: the eclipse sequence, with the name set in its dark lower band */
+.banner {
+  position: relative;
+  background: #000;
 }
 
-.profile-frame {
-  width: 160px;
-  height: 160px;
-  display: inline-block;
-  overflow: hidden;
-  border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  border: 2px solid var(--border);
-}
-
-.profile-frame img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  object-position: -57px -11px;
+.banner img {
   display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.banner h1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  margin: 0;
+  /* Letter-spacing also trails the last letter; pad the left to re-center */
+  padding-left: 0.24em;
+  text-align: center;
+  font-family: var(--font-name);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5vw, 4rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.banner h1 a {
+  color: #f3efe9;
 }
 
 nav {
-  background-color: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 0.75rem 1rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+  gap: 0 2rem;
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  margin: 1.6rem auto 0;
+  padding: 0 1.6rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 nav a {
   color: var(--text-dim);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 0.25rem 0.25rem;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-nav a:hover {
-  color: var(--accent-hover);
+  padding: 0.6rem 0;
 }
 
 nav a[aria-current="page"] {
   color: var(--accent);
-  border-bottom-color: var(--accent);
+}
+
+nav a[aria-current="page"]::before {
+  content: "\25B8\00a0";
 }
 
 main {
   display: block;
+  padding: 0 1rem;
 }
 
 section {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  border-radius: 10px;
+  margin: 3.5rem auto;
 }
 
 section.wide {
   max-width: 860px;
-  padding: 2rem 2.5rem 2.75rem;
 }
 
 section.wide-xl {
   max-width: 1120px;
-  padding: 2rem 2.5rem 2.75rem;
 }
 
-section h2 {
-  margin-top: 0;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
   color: var(--text);
 }
 
-section a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease, color 0.15s ease;
-}
-
-section a:hover {
-  color: var(--accent-hover);
-  border-bottom-color: var(--accent-hover);
-}
-
 footer {
-  text-align: center;
-  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  max-width: 1120px;
+  margin: 4rem auto 0;
+  padding: 1.75rem 1rem;
+  border-top: 1px solid var(--border);
   color: var(--text-dim);
   font-size: 0.875rem;
-  margin-top: 3rem;
-  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: var(--text-dim);
+}
+
+footer a:hover {
+  color: var(--accent);
 }
 
 .external-link {
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .embed-frame {
@@ -160,6 +206,80 @@ footer {
   border-radius: 8px;
   margin-top: 1.25rem;
   background: #fff;
+}
+
+/* Home page */
+
+.home-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 3.5rem;
+  max-width: 1120px;
+  margin: 3.5rem auto;
+}
+
+.home-intro .home-about {
+  margin: 0;
+  max-width: none;
+}
+
+.home-about p {
+  margin: 0 0 1rem;
+}
+
+.headshot {
+  display: block;
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.contact {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.home-photos {
+  max-width: 1120px;
+}
+
+.home-photo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.home-photo-grid figure {
+  margin: 0;
+}
+
+.home-photo-grid figure:first-child {
+  grid-row: span 2;
+}
+
+.home-photo-grid img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.home-photo-grid figure:first-child img {
+  height: 440px;
+}
+
+.home-photo-grid figcaption {
+  margin-top: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.95rem;
 }
 
 /* CV page */
@@ -186,7 +306,7 @@ footer {
   display: inline-block;
   padding: 0.4rem 1.1rem;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent);
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -237,7 +357,7 @@ footer {
 }
 
 .cv-row .cv-title {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.02rem;
   color: var(--text);
 }
@@ -316,7 +436,7 @@ dl.cv-skills {
 }
 
 dl.cv-skills dt {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent-hover);
 }
 
@@ -337,7 +457,7 @@ dl.cv-skills dd {
 
 .extras-item h3 {
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text);
   margin: 0 0 0.4rem;
 }
@@ -353,16 +473,6 @@ dl.cv-skills dd {
   max-width: 46rem;
 }
 
-/* Full-width hero (used for the ultra-wide eclipse panorama) */
-.photo-hero {
-  margin: 0 0 1rem;
-}
-
-.photo-hero img {
-  width: 100%;
-  height: auto;
-}
-
 /* Masonry gallery: preserves each photo's native aspect ratio */
 .photo-masonry {
   column-count: 3;
@@ -374,7 +484,6 @@ dl.cv-skills dd {
   break-inside: avoid;
 }
 
-.photo-hero,
 .photo-masonry figure {
   display: block;
 }
@@ -395,7 +504,6 @@ dl.cv-skills dd {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 
-.photo-hero figcaption,
 .photo-masonry figcaption {
   margin-top: 0.5rem;
   color: var(--text-dim);
@@ -441,20 +549,41 @@ footer a {
   color: var(--text-dim);
 }
 
-@media (max-width: 600px) {
-  header {
-    padding: 2rem 1rem 1.5rem;
+@media (max-width: 760px) {
+  .home-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
   }
-  header h1 {
-    font-size: 1.6rem;
+  .headshot {
+    max-width: 200px;
+  }
+  .home-photo-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-photo-grid figure:first-child {
+    grid-row: auto;
+  }
+  .home-photo-grid img,
+  .home-photo-grid figure:first-child img {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1.0625rem;
   }
   nav {
-    gap: 0.5rem 1rem;
-    font-size: 0.95rem;
+    gap: 0 1.1rem;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+  }
+  nav a {
+    padding: 0.75rem 0;
   }
   section {
-    margin: 1rem;
-    padding: 1.25rem 1.25rem;
+    margin: 2.5rem auto;
   }
   .embed-frame {
     height: 70vh;
@@ -481,7 +610,7 @@ footer a {
     background: #fff;
     color: #000;
   }
-  header,
+  .banner,
   nav,
   footer,
   .cv-actions {
@@ -501,6 +630,7 @@ footer a {
     border-top: 1px solid #ccc;
     break-inside: avoid;
   }
+  h2,
   .cv-section h3 {
     color: #000;
   }

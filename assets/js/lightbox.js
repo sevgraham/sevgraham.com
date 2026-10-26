@@ -18,7 +18,7 @@
 
   function close() {
     modal.style.display = 'none';
-    modalImg.src = '';
+    modalImg.removeAttribute('src');
     if (opener) opener.focus();
   }
 
