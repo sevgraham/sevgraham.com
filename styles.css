@@ -30,14 +30,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Courier Prime";
-  src: url("assets/fonts/courier-prime-400.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --bg: #0d0c0b;
   --surface: #161412;
@@ -52,7 +44,6 @@
   --shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
   --font-body: "Charis SIL", Cambria, Georgia, serif;
   --font-name: "Josefin Sans", "Futura", "Century Gothic", sans-serif;
-  --font-mono: "Courier Prime", "Courier New", monospace;
 }
 
 * {
@@ -127,9 +118,8 @@ nav {
   padding: 0 1.6rem;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  font-family: var(--font-mono);
   font-size: 0.95rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -206,6 +196,10 @@ footer a:hover {
   border-radius: 8px;
   margin-top: 1.25rem;
   background: #fff;
+}
+
+.embed-dark {
+  background: #000;
 }
 
 /* Home page */
@@ -555,8 +549,16 @@ footer a {
     gap: 2rem;
     margin-top: 2.5rem;
   }
+  .home-aside {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
   .headshot {
     max-width: 200px;
+  }
+  .contact {
+    margin: 0;
   }
   .home-photo-grid {
     grid-template-columns: 1fr;
@@ -567,6 +569,18 @@ footer a {
   .home-photo-grid img,
   .home-photo-grid figure:first-child img {
     height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-aside {
+    gap: 1rem;
+  }
+  .headshot {
+    max-width: 130px;
+  }
+  .contact {
+    font-size: 0.9rem;
   }
 }
 
