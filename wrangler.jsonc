@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sevgraham-com",
+  "compatibility_date": "2026-07-18",
+  "observability": {
+    "enabled": true
+  },
+  // Serve Jekyll's built output, not the repo root. The Cloudflare build
+  // command must run the build first: bundle install && bundle exec jekyll build
+  "assets": {
+    "directory": "./_site"
+  }
+}

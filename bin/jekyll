@@ -1,5 +1,4 @@
 #!/bin/sh
 # Local preview: bin/jekyll serve   (or: bin/jekyll build)
-# Uses Homebrew Ruby; the compat shim lets GitHub Pages' pinned gems run on Ruby 3.2+.
 cd "$(dirname "$0")/.." || exit 1
-RUBYOPT="-r./bin/ruby_compat.rb" exec /opt/homebrew/opt/ruby/bin/bundle exec jekyll "$@"
+exec /opt/homebrew/opt/ruby/bin/bundle exec jekyll "$@"
